@@ -1,0 +1,903 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Abel Teweldebirhan | Portfolio</title>
+    
+    <!-- Google Fonts -->
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
+    
+    <!-- Font Awesome -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    
+    <!-- AOS Scroll Animation CSS -->
+    <link href="https://unpkg.com/aos@2.3.1/dist/aos.css" rel="stylesheet">
+
+    <style>
+        /* === VARIABLES === */
+        :root {
+            --primary: #1e3a8a; /* Deep Blue */
+            --secondary: #3b82f6; /* Bright Blue */
+            --accent: #d69e2e; /* Gold */
+            --success: #10b981; /* Green */
+            --dark: #0f172a;
+            --light: #f8fafc;
+            --gray: #64748b;
+            --bg: #f1f5f9;
+            --card-bg: #ffffff;
+            --transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+        }
+
+        /* === GLOBAL RESET === */
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            font-family: 'Poppins', sans-serif;
+            scroll-behavior: smooth;
+        }
+
+        body {
+            background-color: var(--bg);
+            color: var(--dark);
+            line-height: 1.6;
+            overflow-x: hidden;
+        }
+
+        img {
+            max-width: 100%;
+            height: auto;
+            border-radius: 8px;
+        }
+
+        a {
+            text-decoration: none;
+            color: inherit;
+        }
+
+        /* === NAVBAR === */
+        nav {
+            position: fixed;
+            top: 0;
+            width: 100%;
+            background: rgba(255, 255, 255, 0.95);
+            backdrop-filter: blur(10px);
+            box-shadow: 0 2px 10px rgba(0,0,0,0.1);
+            z-index: 1000;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding: 1rem 5%;
+            transition: var(--transition);
+        }
+
+        .logo {
+            font-size: 1.5rem;
+            font-weight: 700;
+            color: var(--primary);
+        }
+
+        .logo span {
+            color: var(--secondary);
+        }
+
+        .nav-links {
+            display: flex;
+            gap: 2rem;
+            list-style: none;
+        }
+
+        .nav-links li a {
+            font-weight: 500;
+            color: var(--dark);
+            transition: var(--transition);
+        }
+
+        .nav-links li a:hover {
+            color: var(--secondary);
+        }
+
+        .menu-btn {
+            display: none;
+            font-size: 1.5rem;
+            cursor: pointer;
+            color: var(--primary);
+        }
+
+        /* === HERO SECTION === */
+        #hero {
+            min-height: 100vh;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            padding: 6rem 5% 2rem;
+            background: linear-gradient(135deg, rgba(30,58,138,0.05) 0%, rgba(59,130,246,0.1) 100%);
+            gap: 4rem;
+        }
+
+        .hero-content {
+            flex: 1;
+            max-width: 600px;
+        }
+
+        .hero-content h1 {
+            font-size: 3.5rem;
+            line-height: 1.2;
+            margin-bottom: 1rem;
+            color: var(--primary);
+        }
+
+        .hero-content h2 {
+            font-size: 1.5rem;
+            color: var(--secondary);
+            font-weight: 500;
+            margin-bottom: 1.5rem;
+        }
+
+        .hero-content p {
+            color: var(--gray);
+            margin-bottom: 2rem;
+            font-size: 1.1rem;
+        }
+
+        .btn {
+            display: inline-block;
+            padding: 0.8rem 2rem;
+            border-radius: 30px;
+            font-weight: 600;
+            transition: var(--transition);
+            cursor: pointer;
+            border: none;
+        }
+
+        .btn-primary {
+            background: var(--primary);
+            color: white;
+            box-shadow: 0 4px 15px rgba(30, 58, 138, 0.3);
+        }
+
+        .btn-primary:hover {
+            background: var(--secondary);
+            transform: translateY(-3px);
+        }
+
+        .hero-image {
+            flex: 1;
+            display: flex;
+            justify-content: center;
+            position: relative;
+        }
+
+        .hero-image img {
+            width: 350px;
+            height: 350px;
+            object-fit: cover;
+            border-radius: 50%;
+            border: 8px solid white;
+            box-shadow: 0 20px 40px rgba(0,0,0,0.1);
+        }
+
+        /* === SECTIONS COMMONS === */
+        section {
+            padding: 5rem 5%;
+        }
+
+        .section-title {
+            text-align: center;
+            font-size: 2.5rem;
+            color: var(--primary);
+            margin-bottom: 3rem;
+            position: relative;
+        }
+
+        .section-title::after {
+            content: '';
+            position: absolute;
+            bottom: -10px;
+            left: 50%;
+            transform: translateX(-50%);
+            width: 60px;
+            height: 4px;
+            background: var(--secondary);
+            border-radius: 2px;
+        }
+
+        /* === ABOUT SECTION === */
+        .about-grid {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 3rem;
+        }
+
+        .info-card {
+            background: var(--card-bg);
+            padding: 2rem;
+            border-radius: 15px;
+            box-shadow: 0 10px 30px rgba(0,0,0,0.05);
+            border-top: 4px solid var(--secondary);
+        }
+
+        .info-card h3 {
+            color: var(--primary);
+            margin-bottom: 1.5rem;
+            display: flex;
+            align-items: center;
+            gap: 10px;
+        }
+
+        .quote-box {
+            background: rgba(59, 130, 246, 0.1);
+            padding: 1.5rem;
+            border-left: 4px solid var(--secondary);
+            border-radius: 0 8px 8px 0;
+            font-style: italic;
+            margin-top: 1.5rem;
+        }
+
+        .icon-list li {
+            list-style: none;
+            margin-bottom: 1rem;
+            display: flex;
+            align-items: center;
+            gap: 15px;
+        }
+
+        .icon-list i {
+            color: var(--secondary);
+            font-size: 1.2rem;
+            width: 25px;
+            text-align: center;
+        }
+
+        /* === SKILLS SECTION === */
+        .skills-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+            gap: 2rem;
+        }
+
+        .skill-box {
+            background: var(--card-bg);
+            padding: 2rem;
+            text-align: center;
+            border-radius: 15px;
+            box-shadow: 0 10px 30px rgba(0,0,0,0.05);
+            transition: var(--transition);
+            cursor: pointer;
+        }
+
+        .skill-box:hover {
+            transform: translateY(-10px);
+            background: var(--primary);
+            color: white;
+        }
+
+        .skill-box i {
+            font-size: 2.5rem;
+            color: var(--secondary);
+            margin-bottom: 1rem;
+            transition: var(--transition);
+        }
+
+        .skill-box:hover i, .skill-box:hover p {
+            color: white;
+        }
+
+        .skill-box h4 {
+            font-size: 1.2rem;
+            margin-bottom: 0.5rem;
+        }
+
+        .skill-box p {
+            font-size: 0.9rem;
+            color: var(--gray);
+        }
+
+        /* === TIMELINE (EXPERIENCE & LEADERSHIP) === */
+        .timeline {
+            position: relative;
+            max-width: 1000px;
+            margin: 0 auto;
+        }
+
+        .timeline::after {
+            content: '';
+            position: absolute;
+            width: 4px;
+            background: var(--secondary);
+            top: 0;
+            bottom: 0;
+            left: 50%;
+            transform: translateX(-50%);
+            border-radius: 2px;
+        }
+
+        .timeline-item {
+            padding: 10px 40px;
+            position: relative;
+            background: inherit;
+            width: 50%;
+        }
+
+        .timeline-item::after {
+            content: '';
+            position: absolute;
+            width: 20px;
+            height: 20px;
+            right: -10px;
+            background: white;
+            border: 4px solid var(--secondary);
+            top: 15px;
+            border-radius: 50%;
+            z-index: 1;
+        }
+
+        .left { left: 0; }
+        .right { left: 50%; }
+        
+        .right::after { left: -10px; }
+
+        .timeline-content {
+            padding: 1.5rem;
+            background: var(--card-bg);
+            border-radius: 15px;
+            box-shadow: 0 10px 30px rgba(0,0,0,0.05);
+            transition: var(--transition);
+        }
+
+        .timeline-content:hover {
+            transform: scale(1.02);
+            box-shadow: 0 15px 40px rgba(0,0,0,0.1);
+        }
+
+        .timeline-header {
+            display: flex;
+            align-items: center;
+            gap: 15px;
+            margin-bottom: 1rem;
+        }
+
+        .timeline-header img {
+            width: 50px;
+            height: 50px;
+            object-fit: contain;
+        }
+
+        .date {
+            color: var(--secondary);
+            font-weight: 600;
+            font-size: 0.9rem;
+            margin-bottom: 0.5rem;
+            display: block;
+        }
+
+        /* === PROJECTS GRID === */
+        .projects-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 2rem;
+        }
+
+        .project-card {
+            background: var(--card-bg);
+            border-radius: 15px;
+            overflow: hidden;
+            box-shadow: 0 10px 30px rgba(0,0,0,0.05);
+            transition: var(--transition);
+            border-bottom: 4px solid transparent;
+        }
+
+        .project-card:hover {
+            transform: translateY(-10px);
+            border-bottom-color: var(--secondary);
+        }
+
+        .project-content {
+            padding: 2rem;
+        }
+
+        .project-header {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            margin-bottom: 1rem;
+        }
+
+        .project-header img {
+            height: 30px;
+            object-fit: contain;
+        }
+
+        .badge {
+            background: rgba(59, 130, 246, 0.1);
+            color: var(--secondary);
+            padding: 0.3rem 0.8rem;
+            border-radius: 20px;
+            font-size: 0.8rem;
+            font-weight: 600;
+        }
+
+        /* === AWARDS & VIDEO === */
+        .awards-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 1.5rem;
+            margin-bottom: 4rem;
+        }
+
+        .award-card {
+            display: flex;
+            align-items: center;
+            gap: 15px;
+            background: var(--card-bg);
+            padding: 1.5rem;
+            border-radius: 10px;
+            border-left: 4px solid var(--secondary);
+            box-shadow: 0 5px 15px rgba(0,0,0,0.05);
+            transition: var(--transition);
+        }
+
+        .award-card:hover {
+            transform: translateX(10px);
+            background: var(--primary);
+            color: white;
+        }
+
+        .award-card:hover p, .award-card:hover i {
+            color: white !important;
+        }
+
+        .award-card img {
+            width: 45px;
+            height: 45px;
+            object-fit: contain;
+            background: white;
+            padding: 5px;
+            border-radius: 5px;
+        }
+
+        .video-container {
+            max-width: 800px;
+            margin: 0 auto;
+            position: relative;
+            border-radius: 15px;
+            overflow: hidden;
+            box-shadow: 0 20px 40px rgba(0,0,0,0.2);
+            cursor: pointer;
+        }
+
+        .video-container:hover .play-btn {
+            transform: translate(-50%, -50%) scale(1.1);
+            color: var(--secondary);
+        }
+
+        .play-btn {
+            position: absolute;
+            top: 50%;
+            left: 50%;
+            transform: translate(-50%, -50%);
+            font-size: 4rem;
+            color: white;
+            transition: var(--transition);
+            filter: drop-shadow(0 4px 6px rgba(0,0,0,0.3));
+        }
+
+        /* === FOOTER === */
+        footer {
+            background: var(--dark);
+            color: white;
+            text-align: center;
+            padding: 3rem 5%;
+        }
+
+        .social-links {
+            display: flex;
+            justify-content: center;
+            gap: 1.5rem;
+            margin-bottom: 2rem;
+        }
+
+        .social-links a {
+            width: 45px;
+            height: 45px;
+            background: rgba(255,255,255,0.1);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            border-radius: 50%;
+            font-size: 1.2rem;
+            transition: var(--transition);
+        }
+
+        .social-links a:hover {
+            background: var(--secondary);
+            transform: translateY(-5px);
+        }
+
+        /* === RESPONSIVE MEDIA QUERIES === */
+        @media screen and (max-width: 992px) {
+            .hero-content h1 { font-size: 2.8rem; }
+            .hero-image img { width: 300px; height: 300px; }
+            .about-grid { grid-template-columns: 1fr; }
+        }
+
+        @media screen and (max-width: 768px) {
+            nav { padding: 1rem 5%; }
+            .nav-links {
+                position: fixed;
+                top: 70px;
+                right: -100%;
+                flex-direction: column;
+                background: var(--card-bg);
+                width: 100%;
+                text-align: center;
+                padding: 2rem 0;
+                box-shadow: 0 10px 10px rgba(0,0,0,0.1);
+                transition: 0.4s;
+            }
+            .nav-links.active { right: 0; }
+            .menu-btn { display: block; }
+            
+            #hero { flex-direction: column-reverse; text-align: center; padding-top: 8rem; }
+            .hero-image img { width: 250px; height: 250px; }
+            
+            .timeline::after { left: 31px; }
+            .timeline-item { width: 100%; padding-left: 70px; padding-right: 0; }
+            .timeline-item::after { left: 21px; }
+            .right { left: 0; }
+        }
+    </style>
+</head>
+<body>
+
+    <!-- Navigation -->
+    <nav>
+        <div class="logo">Abel<span>.T</span></div>
+        <ul class="nav-links">
+            <li><a href="#hero">Home</a></li>
+            <li><a href="#about">About</a></li>
+            <li><a href="#skills">Skills</a></li>
+            <li><a href="#experience">Experience</a></li>
+            <li><a href="#projects">Projects</a></li>
+            <li><a href="#awards">Awards</a></li>
+        </ul>
+        <div class="menu-btn"><i class="fas fa-bars"></i></div>
+    </nav>
+
+    <!-- Hero Section -->
+    <header id="hero">
+        <div class="hero-content" data-aos="fade-right" data-aos-duration="1000">
+            <h1>Abel Teweldebirhan</h1>
+            <h2>Product Strategy | Business Development | Growth</h2>
+            <p>MBA-trained professional turning real problems into practical products, partnerships, and growth opportunities. I bridge the gap between identifying issues and executing measurable solutions.</p>
+            <div style="display: flex; gap: 1rem; flex-wrap: wrap; justify-content: inherit;">
+                <a href="#contact" class="btn btn-primary"><i class="fas fa-paper-plane"></i> Let's Connect</a>
+                <a href="#experience" class="btn" style="background: white; border: 2px solid var(--secondary); color: var(--secondary);"><i class="fas fa-briefcase"></i> View Work</a>
+            </div>
+        </div>
+        <div class="hero-image" data-aos="zoom-in" data-aos-duration="1200">
+            <!-- Using original path as requested, add fallback style if image is missing -->
+            <img src="logos/Abel_T.jpg" alt="Abel Teweldebirhan" onerror="this.src='https://ui-avatars.com/api/?name=Abel+Teweldebirhan&size=400&background=1e3a8a&color=fff'">
+        </div>
+    </header>
+
+    <!-- About Section -->
+    <section id="about">
+        <h2 class="section-title" data-aos="fade-up">Professional Profile</h2>
+        <div class="about-grid">
+            <div class="info-card" data-aos="fade-right" data-aos-delay="100">
+                <h3><i class="fas fa-user-tie"></i> Summary</h3>
+                <p>My work spans product strategy, customer discovery, business development, analytics, market growth, and execution — from identifying the problem to launching a solution, observing how people actually use it, and improving the product from what we learn.</p>
+                <div class="quote-box">
+                    "Understand the problem. Build what matters. Execute for impact."
+                </div>
+            </div>
+            
+            <div class="info-card" data-aos="fade-left" data-aos-delay="200">
+                <h3><i class="fas fa-graduation-cap"></i> Education & Credentials</h3>
+                <ul class="icon-list">
+                    <li><i class="fas fa-university"></i> <div><strong>MBA (Master of Business Admin)</strong><br>Unicaf University, Zambia (Completed)</div></li>
+                    <li><i class="fas fa-building"></i> <div><strong>BSc, Civil Engineering</strong><br>Debre Berhan University, Ethiopia (Completed)</div></li>
+                    <li><i class="fas fa-certificate"></i> Data Analytics (ALX) | SQL | Scrum</li>
+                    <li><i class="fas fa-language"></i> English (Fluent) | Amharic (Native)</li>
+                </ul>
+            </div>
+        </div>
+    </section>
+
+    <!-- Skills Section -->
+    <section id="skills">
+        <h2 class="section-title" data-aos="fade-up">Core Competencies</h2>
+        <div class="skills-grid">
+            <div class="skill-box" data-aos="zoom-in" data-aos-delay="100">
+                <i class="fas fa-bullseye"></i>
+                <h4>Product</h4>
+                <p>Strategy, Discovery, MVPs, UX, Iteration</p>
+            </div>
+            <div class="skill-box" data-aos="zoom-in" data-aos-delay="200">
+                <i class="fas fa-chart-line"></i>
+                <h4>Business</h4>
+                <p>Business Dev, Partnerships, Models, Research</p>
+            </div>
+            <div class="skill-box" data-aos="zoom-in" data-aos-delay="300">
+                <i class="fas fa-database"></i>
+                <h4>Data</h4>
+                <p>SQL, Analytics, KPIs, Customer Behaviour</p>
+            </div>
+            <div class="skill-box" data-aos="zoom-in" data-aos-delay="400">
+                <i class="fas fa-rocket"></i>
+                <h4>Growth</h4>
+                <p>Go-to-Market, Client Dev, Market Expansion</p>
+            </div>
+            <div class="skill-box" data-aos="zoom-in" data-aos-delay="500">
+                <i class="fas fa-tasks"></i>
+                <h4>Execution</h4>
+                <p>Scrum, Cross-Functional Collaboration</p>
+            </div>
+        </div>
+    </section>
+
+    <!-- Experience & Leadership Timeline -->
+    <section id="experience">
+        <h2 class="section-title" data-aos="fade-up">Experience & Leadership</h2>
+        <div class="timeline">
+            
+            <!-- Job 1 -->
+            <div class="timeline-item left" data-aos="fade-right">
+                <div class="timeline-content">
+                    <span class="date">Jan 2021 – Mar 2026</span>
+                    <div class="timeline-header">
+                        <img src="logos/Think Hub Logo.png" alt="Think Hub" onerror="this.style.display='none'">
+                        <div>
+                            <h3 style="color: var(--primary);">Founder & Product Lead</h3>
+                            <h4 style="color: var(--gray); font-size: 0.9rem;">Think Hub ET Innovations | Exam Time</h4>
+                        </div>
+                    </div>
+                    <p style="font-size: 0.95rem;">Built and grew Exam Time, a digital platform reaching 120k+ students. Led strategy, partnerships, and fundraising. Pitched at Google HQ London.</p>
+                </div>
+            </div>
+
+            <!-- Job 2 -->
+            <div class="timeline-item right" data-aos="fade-left">
+                <div class="timeline-content">
+                    <span class="date">Feb 2023 – Apr 2025</span>
+                    <div class="timeline-header">
+                        <img src="logos/ppllc.png" alt="Power Platform" onerror="this.style.display='none'">
+                        <div>
+                            <h3 style="color: var(--primary);">Business Developer</h3>
+                            <h4 style="color: var(--gray); font-size: 0.9rem;">Power Platform Office LLC</h4>
+                        </div>
+                    </div>
+                    <p style="font-size: 0.95rem;">Led tech business dev initiatives. Improved bid success rate by 25% through strategic market analysis and competitive proposals.</p>
+                </div>
+            </div>
+
+            <!-- Job 3 -->
+            <div class="timeline-item left" data-aos="fade-right">
+                <div class="timeline-content">
+                    <span class="date">Aug 2024 – Jan 2026</span>
+                    <div class="timeline-header">
+                        <img src="logos/nova-kids.png" alt="Nova Kids" onerror="this.style.display='none'">
+                        <div>
+                            <h3 style="color: var(--primary);">Co-Founder & Product Lead</h3>
+                            <h4 style="color: var(--gray); font-size: 0.9rem;">Nova Kids</h4>
+                        </div>
+                    </div>
+                    <p style="font-size: 0.95rem;">Developed an early-childhood product from MVP to launch. Utilized insights from 3,800+ parents to validate and refine UX.</p>
+                </div>
+            </div>
+
+            <!-- Fellowship 1 -->
+            <div class="timeline-item right" data-aos="fade-left">
+                <div class="timeline-content">
+                    <span class="date">Oct 2025 - Mar 2026</span>
+                    <div class="timeline-header">
+                        <img src="logos/mountaintop.png" alt="Mountaintop" onerror="this.style.display='none'">
+                        <div>
+                            <h3 style="color: var(--primary);">Business Executive Fellow</h3>
+                            <h4 style="color: var(--gray); font-size: 0.9rem;">Mountaintop Global Leadership</h4>
+                        </div>
+                    </div>
+                    <p style="font-size: 0.95rem;">Executive development in strategy, systems thinking, innovation, and business scaling.</p>
+                </div>
+            </div>
+
+             <!-- Fellowship 2 -->
+             <div class="timeline-item left" data-aos="fade-right">
+                <div class="timeline-content">
+                    <span class="date">Aug 2024 - Nov 2024</span>
+                    <div class="timeline-header">
+                        <img src="logos/jasiri.png" alt="Jasiri" onerror="this.style.display='none'">
+                        <div>
+                            <h3 style="color: var(--primary);">Talent Investor Fellow</h3>
+                            <h4 style="color: var(--gray); font-size: 0.9rem;">Jasiri (Cohort 6)</h4>
+                        </div>
+                    </div>
+                    <p style="font-size: 0.95rem;">Venture-building fellowship focused on customer discovery, validation, and execution.</p>
+                </div>
+            </div>
+
+        </div>
+    </section>
+
+    <!-- Projects Section -->
+    <section id="projects">
+        <h2 class="section-title" data-aos="fade-up">Selected Projects</h2>
+        <div class="projects-grid">
+            
+            <div class="project-card" data-aos="flip-up" data-aos-delay="100">
+                <div class="project-content">
+                    <div class="project-header">
+                        <img src="logos/Gotera Logo.png" alt="Gotera" onerror="this.outerHTML='<h3 style=\'color:var(--primary)\'>Gotera</h3>'">
+                        <span class="badge"><i class="fas fa-ship"></i> Export</span>
+                    </div>
+                    <p class="date" style="margin-bottom: 10px;">Jul '24 – Feb '25</p>
+                    <p>Market research, sourcing, partnerships, and a business model designed to simplify export and international trade.</p>
+                </div>
+            </div>
+
+            <div class="project-card" data-aos="flip-up" data-aos-delay="200">
+                <div class="project-content">
+                    <div class="project-header">
+                        <img src="logos/nexo logo.png" alt="NEXO" onerror="this.outerHTML='<h3 style=\'color:var(--primary)\'>NEXO</h3>'">
+                        <span class="badge"><i class="fas fa-headset"></i> BPO</span>
+                    </div>
+                    <p class="date" style="margin-bottom: 10px;">Apr '25 – Oct '25</p>
+                    <p>Client discovery, service design, and market development for a BPO model connecting businesses with skilled talent.</p>
+                </div>
+            </div>
+
+            <div class="project-card" data-aos="flip-up" data-aos-delay="300">
+                <div class="project-content">
+                    <div class="project-header">
+                        <img src="logos/pklogo.png" alt="Golazzo" onerror="this.outerHTML='<h3 style=\'color:var(--primary)\'>Golazzo</h3>'">
+                        <span class="badge"><i class="fas fa-futbol"></i> SportsTech</span>
+                    </div>
+                    <p class="date" style="margin-bottom: 10px;">Mar '26 – Jun '26</p>
+                    <p>Golazzo - PK is a competitive football penalty shootout game—managed concept, UX, business model, and go-to-market.</p>
+                </div>
+            </div>
+
+            <div class="project-card" data-aos="flip-up" data-aos-delay="400">
+                <div class="project-content">
+                    <div class="project-header">
+                        <img src="logos/kimem digital.png" alt="Kimem Digital" onerror="this.outerHTML='<h3 style=\'color:var(--primary)\'>Kimem Digital</h3>'">
+                        <span class="badge"><i class="fas fa-gift"></i> Creator Econ</span>
+                    </div>
+                    <p class="date" style="margin-bottom: 10px;">Mar '26 – Aug '26</p>
+                    <p>Digital gifting platform enabling Ethiopian fans to directly support creators—problem validation and product direction.</p>
+                </div>
+            </div>
+
+        </div>
+    </section>
+
+    <!-- Awards & Pitch Video -->
+    <section id="awards">
+        <h2 class="section-title" data-aos="fade-up">Recognition & Pitches</h2>
+        
+        <div class="awards-grid">
+            <div class="award-card" data-aos="zoom-in-up" data-aos-delay="50">
+                <img src="logos/hult prize.png" alt="Hult" onerror="this.style.display='none'">
+                <div>
+                    <h4 style="color: var(--primary);">Hult Prize Global <i class="fas fa-trophy" style="color: var(--accent);"></i></h4>
+                    <p style="font-size: 0.85rem; color: var(--gray);">Top 20 Finalist (Google HQ)</p>
+                </div>
+            </div>
+
+            <div class="award-card" data-aos="zoom-in-up" data-aos-delay="100">
+                <img src="logos/master card.png" alt="Mastercard" onerror="this.style.display='none'">
+                <div>
+                    <h4 style="color: var(--primary);">Mastercard Foundation <i class="fas fa-sack-dollar" style="color: var(--success);"></i></h4>
+                    <p style="font-size: 0.85rem; color: var(--gray);">EdTech Fellowship ($60,000)</p>
+                </div>
+            </div>
+
+            <div class="award-card" data-aos="zoom-in-up" data-aos-delay="150">
+                <img src="logos/Post-Growth-Institute-Logo.png" alt="Post Growth" onerror="this.style.display='none'">
+                <div>
+                    <h4 style="color: var(--primary);">Post-Startup Growth <i class="fas fa-sack-dollar" style="color: var(--success);"></i></h4>
+                    <p style="font-size: 0.85rem; color: var(--gray);">Growth Award ($40,000)</p>
+                </div>
+            </div>
+
+            <div class="award-card" data-aos="zoom-in-up" data-aos-delay="200">
+                <img src="logos/innobiz.png" alt="InnoBiz" onerror="this.style.display='none'">
+                <div>
+                    <h4 style="color: var(--primary);">InnoBiz Startup <i class="fas fa-trophy" style="color: var(--accent);"></i></h4>
+                    <p style="font-size: 0.85rem; color: var(--gray);">1st Place ($10,000)</p>
+                </div>
+            </div>
+
+            <div class="award-card" data-aos="zoom-in-up" data-aos-delay="250">
+                <img src="logos/jasiri.png" alt="Jasiri" onerror="this.style.display='none'">
+                <div>
+                    <h4 style="color: var(--primary);">Jasiri Talent Investor <i class="fas fa-sack-dollar" style="color: var(--success);"></i></h4>
+                    <p style="font-size: 0.85rem; color: var(--gray);">Fellow ($10,000)</p>
+                </div>
+            </div>
+
+            <div class="award-card" data-aos="zoom-in-up" data-aos-delay="300">
+                <img src="logos/Kefeta-Logo.png" alt="Kefeta" onerror="this.style.display='none'">
+                <div>
+                    <h4 style="color: var(--primary);">Kefeta Competition <i class="fas fa-trophy" style="color: var(--accent);"></i></h4>
+                    <p style="font-size: 0.85rem; color: var(--gray);">1st Place Winner</p>
+                </div>
+            </div>
+        </div>
+
+        <div class="video-container" data-aos="zoom-in" data-aos-duration="1000">
+            <a href="https://www.youtube.com/watch?v=S7X9ZWi7cHk" target="_blank">
+                <img src="logos/thumbnail.png" alt="Pitch Video" style="width: 100%; display: block;" onerror="this.src='https://images.unsplash.com/photo-1542744173-8e7e53415bb0?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&q=80'">
+                <i class="fas fa-play-circle play-btn"></i>
+            </a>
+        </div>
+    </section>
+
+    <!-- Footer / Contact -->
+    <footer id="contact">
+        <h2 style="margin-bottom: 2rem;" data-aos="fade-up">Let's Build Something Great</h2>
+        
+        <div class="social-links" data-aos="fade-up" data-aos-delay="100">
+            <a href="mailto:abelteweldeb@gmail.com" title="Email"><i class="fas fa-envelope"></i></a>
+            <a href="https://linkedin.com/in/abelgebreselassie" target="_blank" title="LinkedIn"><i class="fab fa-linkedin-in"></i></a>
+            <a href="tel:+251912462133" title="Phone"><i class="fas fa-phone-alt"></i></a>
+            <a href="#" title="Location"><i class="fas fa-map-marker-alt"></i></a>
+        </div>
+
+        <p style="color: #cbd5e1; font-size: 0.9rem;" data-aos="fade-up" data-aos-delay="200">
+            Addis Ababa, Ethiopia | +251 912 462 133<br>
+            &copy; 2025 Abel Teweldebirhan Gebreselassie. All Rights Reserved.
+        </p>
+    </footer>
+
+    <!-- AOS JS for Scroll Animations -->
+    <script src="https://unpkg.com/aos@2.3.1/dist/aos.js"></script>
+    <script>
+        // Initialize Scroll Animations
+        AOS.init({
+            once: true, // Whether animation should happen only once - while scrolling down
+            offset: 50, // Offset (in px) from the original trigger point
+            duration: 800, // Values from 0 to 3000, with step 50ms
+            easing: 'ease-in-out-cubic', // Default easing for AOS animations
+        });
+
+        // Mobile Menu Toggle
+        const menuBtn = document.querySelector('.menu-btn');
+        const navLinks = document.querySelector('.nav-links');
+        const links = document.querySelectorAll('.nav-links li a');
+
+        menuBtn.addEventListener('click', () => {
+            navLinks.classList.toggle('active');
+            const icon = menuBtn.querySelector('i');
+            if(navLinks.classList.contains('active')){
+                icon.classList.remove('fa-bars');
+                icon.classList.add('fa-times');
+            } else {
+                icon.classList.remove('fa-times');
+                icon.classList.add('fa-bars');
+            }
+        });
+
+        // Close mobile menu on link click
+        links.forEach(link => {
+            link.addEventListener('click', () => {
+                navLinks.classList.remove('active');
+                menuBtn.querySelector('i').classList.remove('fa-times');
+                menuBtn.querySelector('i').classList.add('fa-bars');
+            });
+        });
+
+        // Add shadow to navbar on scroll
+        window.addEventListener('scroll', () => {
+            const nav = document.querySelector('nav');
+            if (window.scrollY > 50) {
+                nav.style.boxShadow = '0 5px 20px rgba(0,0,0,0.1)';
+            } else {
+                nav.style.boxShadow = '0 2px 10px rgba(0,0,0,0.1)';
+            }
+        });
+    </script>
+</body>
+</html>
