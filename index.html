@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Abel Teweldebirhan | Portfolio</title>
+    <title>Abel Teweldebirhan | AI & Product Strategy</title>
     
     <!-- Google Fonts -->
     <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
@@ -56,6 +56,16 @@
             color: inherit;
         }
 
+        /* HIGHLIGHT CLASS FOR KEY METRICS */
+        .metric-highlight {
+            color: var(--primary);
+            font-weight: 700;
+            background: rgba(59, 130, 246, 0.15);
+            padding: 2px 6px;
+            border-radius: 4px;
+            white-space: nowrap;
+        }
+
         /* === NAVBAR === */
         nav {
             position: fixed;
@@ -92,6 +102,7 @@
             font-weight: 500;
             color: var(--dark);
             transition: var(--transition);
+            font-size: 0.95rem;
         }
 
         .nav-links li a:hover {
@@ -118,27 +129,31 @@
 
         .hero-content {
             flex: 1;
-            max-width: 600px;
+            max-width: 650px;
         }
 
         .hero-content h1 {
             font-size: 3.5rem;
             line-height: 1.2;
-            margin-bottom: 1rem;
+            margin-bottom: 0.5rem;
             color: var(--primary);
         }
 
         .hero-content h2 {
-            font-size: 1.5rem;
+            font-size: 1.2rem;
             color: var(--secondary);
-            font-weight: 500;
+            font-weight: 600;
             margin-bottom: 1.5rem;
+            line-height: 1.4;
+            text-transform: uppercase;
+            letter-spacing: 1px;
         }
 
         .hero-content p {
             color: var(--gray);
             margin-bottom: 2rem;
-            font-size: 1.1rem;
+            font-size: 1.05rem;
+            line-height: 1.8;
         }
 
         .btn {
@@ -185,10 +200,11 @@
 
         .section-title {
             text-align: center;
-            font-size: 2.5rem;
+            font-size: 2.2rem;
             color: var(--primary);
             margin-bottom: 3rem;
             position: relative;
+            font-weight: 700;
         }
 
         .section-title::after {
@@ -207,15 +223,18 @@
         .about-grid {
             display: grid;
             grid-template-columns: 1fr 1fr;
-            gap: 3rem;
+            gap: 2.5rem;
         }
 
         .info-card {
             background: var(--card-bg);
-            padding: 2rem;
+            padding: 2.5rem;
             border-radius: 15px;
             box-shadow: 0 10px 30px rgba(0,0,0,0.05);
             border-top: 4px solid var(--secondary);
+            display: flex;
+            flex-direction: column;
+            justify-content: space-between;
         }
 
         .info-card h3 {
@@ -224,74 +243,97 @@
             display: flex;
             align-items: center;
             gap: 10px;
+            font-size: 1.3rem;
         }
 
         .quote-box {
-            background: rgba(59, 130, 246, 0.1);
+            background: rgba(59, 130, 246, 0.05);
             padding: 1.5rem;
             border-left: 4px solid var(--secondary);
             border-radius: 0 8px 8px 0;
             font-style: italic;
             margin-top: 1.5rem;
+            color: var(--primary);
+            font-size: 0.95rem;
         }
 
         .icon-list li {
             list-style: none;
             margin-bottom: 1rem;
             display: flex;
-            align-items: center;
+            align-items: flex-start;
             gap: 15px;
+            font-size: 0.95rem;
         }
 
         .icon-list i {
             color: var(--secondary);
-            font-size: 1.2rem;
+            font-size: 1.1rem;
             width: 25px;
             text-align: center;
+            margin-top: 4px;
+        }
+
+        .tags-container {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 8px;
+            margin-top: 10px;
+        }
+
+        .tag {
+            background: rgba(100, 116, 139, 0.1);
+            color: var(--dark);
+            padding: 4px 10px;
+            border-radius: 15px;
+            font-size: 0.85rem;
+            font-weight: 500;
+        }
+
+        .tag.highlight {
+            background: rgba(59, 130, 246, 0.1);
+            color: var(--secondary);
+            font-weight: 600;
         }
 
         /* === SKILLS SECTION === */
         .skills-grid {
             display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
             gap: 2rem;
         }
 
         .skill-box {
             background: var(--card-bg);
             padding: 2rem;
-            text-align: center;
             border-radius: 15px;
             box-shadow: 0 10px 30px rgba(0,0,0,0.05);
             transition: var(--transition);
-            cursor: pointer;
+            border-left: 4px solid transparent;
         }
 
         .skill-box:hover {
-            transform: translateY(-10px);
-            background: var(--primary);
-            color: white;
+            transform: translateY(-5px);
+            border-left-color: var(--secondary);
+            box-shadow: 0 15px 40px rgba(0,0,0,0.1);
         }
 
         .skill-box i {
-            font-size: 2.5rem;
+            font-size: 2rem;
             color: var(--secondary);
             margin-bottom: 1rem;
-            transition: var(--transition);
-        }
-
-        .skill-box:hover i, .skill-box:hover p {
-            color: white;
         }
 
         .skill-box h4 {
             font-size: 1.2rem;
             margin-bottom: 0.5rem;
+            color: var(--primary);
         }
 
         .skill-box p {
             font-size: 0.9rem;
             color: var(--gray);
+            line-height: 1.5;
         }
 
         /* === TIMELINE (EXPERIENCE & LEADERSHIP) === */
@@ -314,7 +356,7 @@
         }
 
         .timeline-item {
-            padding: 10px 40px;
+            padding: 20px 40px;
             position: relative;
             background: inherit;
             width: 50%;
@@ -328,18 +370,17 @@
             right: -10px;
             background: white;
             border: 4px solid var(--secondary);
-            top: 15px;
+            top: 30px;
             border-radius: 50%;
             z-index: 1;
         }
 
         .left { left: 0; }
         .right { left: 50%; }
-        
         .right::after { left: -10px; }
 
         .timeline-content {
-            padding: 1.5rem;
+            padding: 2rem;
             background: var(--card-bg);
             border-radius: 15px;
             box-shadow: 0 10px 30px rgba(0,0,0,0.05);
@@ -353,29 +394,57 @@
 
         .timeline-header {
             display: flex;
-            align-items: center;
+            align-items: flex-start;
             gap: 15px;
             margin-bottom: 1rem;
         }
 
         .timeline-header img {
-            width: 50px;
-            height: 50px;
+            width: 55px;
+            height: 55px;
             object-fit: contain;
+            border-radius: 6px;
         }
 
         .date {
             color: var(--secondary);
             font-weight: 600;
-            font-size: 0.9rem;
+            font-size: 0.85rem;
             margin-bottom: 0.5rem;
             display: block;
+            text-transform: uppercase;
+            letter-spacing: 0.5px;
+        }
+
+        ul.timeline-bullets {
+            list-style: none;
+            padding-left: 0;
+            margin-top: 10px;
+        }
+
+        ul.timeline-bullets li {
+            position: relative;
+            padding-left: 20px;
+            margin-bottom: 8px;
+            font-size: 0.95rem;
+            color: var(--dark);
+        }
+
+        ul.timeline-bullets li::before {
+            content: "•";
+            color: var(--secondary);
+            font-weight: bold;
+            position: absolute;
+            left: 0;
+            font-size: 1.2rem;
+            line-height: 1;
+            top: 2px;
         }
 
         /* === PROJECTS GRID === */
         .projects-grid {
             display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
             gap: 2rem;
         }
 
@@ -406,6 +475,7 @@
 
         .project-header img {
             height: 30px;
+            max-width: 120px;
             object-fit: contain;
         }
 
@@ -414,8 +484,9 @@
             color: var(--secondary);
             padding: 0.3rem 0.8rem;
             border-radius: 20px;
-            font-size: 0.8rem;
-            font-weight: 600;
+            font-size: 0.75rem;
+            font-weight: 700;
+            text-transform: uppercase;
         }
 
         /* === AWARDS & VIDEO === */
@@ -444,9 +515,7 @@
             color: white;
         }
 
-        .award-card:hover p, .award-card:hover i {
-            color: white !important;
-        }
+        .award-card:hover p, .award-card:hover h4 { color: white !important; }
 
         .award-card img {
             width: 45px;
@@ -488,7 +557,7 @@
             background: var(--dark);
             color: white;
             text-align: center;
-            padding: 3rem 5%;
+            padding: 4rem 5% 3rem;
         }
 
         .social-links {
@@ -556,9 +625,9 @@
         <div class="logo">Abel<span>.T</span></div>
         <ul class="nav-links">
             <li><a href="#hero">Home</a></li>
-            <li><a href="#about">About</a></li>
             <li><a href="#skills">Skills</a></li>
             <li><a href="#experience">Experience</a></li>
+            <li><a href="#leadership">Leadership</a></li>
             <li><a href="#projects">Projects</a></li>
             <li><a href="#awards">Awards</a></li>
         </ul>
@@ -569,39 +638,46 @@
     <header id="hero">
         <div class="hero-content" data-aos="fade-right" data-aos-duration="1000">
             <h1>Abel Teweldebirhan</h1>
-            <h2>Product Strategy | Business Development | Growth</h2>
-            <p>MBA-trained professional turning real problems into practical products, partnerships, and growth opportunities. I bridge the gap between identifying issues and executing measurable solutions.</p>
+            <h2>Product Builder | AI-Enabled Product Strategy | Business Development | Growth</h2>
+            <p>MBA-trained product builder and entrepreneur with experience taking products from problem discovery to launch, growth, and scale. Built Exam Time, an EdTech platform reaching <span class="metric-highlight">120,000+ students</span> and <span class="metric-highlight">15,000+ active users</span>, selected as a <span class="metric-highlight">Global Top 20</span> Finalist and pitched at <span class="metric-highlight">Google HQ London</span>. Experienced in applying AI to automate workflows, personalize products, improve business decisions, and create measurable operational impact.</p>
             <div style="display: flex; gap: 1rem; flex-wrap: wrap; justify-content: inherit;">
                 <a href="#contact" class="btn btn-primary"><i class="fas fa-paper-plane"></i> Let's Connect</a>
-                <a href="#experience" class="btn" style="background: white; border: 2px solid var(--secondary); color: var(--secondary);"><i class="fas fa-briefcase"></i> View Work</a>
+                <a href="#experience" class="btn" style="background: white; border: 2px solid var(--secondary); color: var(--secondary);"><i class="fas fa-briefcase"></i> View Experience</a>
             </div>
         </div>
         <div class="hero-image" data-aos="zoom-in" data-aos-duration="1200">
-            <!-- Using original path as requested, add fallback style if image is missing -->
             <img src="logos/Abel_T.jpg" alt="Abel Teweldebirhan" onerror="this.src='https://ui-avatars.com/api/?name=Abel+Teweldebirhan&size=400&background=1e3a8a&color=fff'">
         </div>
     </header>
 
-    <!-- About Section -->
-    <section id="about">
-        <h2 class="section-title" data-aos="fade-up">Professional Profile</h2>
+    <!-- About / Value Section -->
+    <section id="about" style="background: white;">
+        <h2 class="section-title" data-aos="fade-up">The Value I Bring</h2>
         <div class="about-grid">
             <div class="info-card" data-aos="fade-right" data-aos-delay="100">
-                <h3><i class="fas fa-user-tie"></i> Summary</h3>
-                <p>My work spans product strategy, customer discovery, business development, analytics, market growth, and execution — from identifying the problem to launching a solution, observing how people actually use it, and improving the product from what we learn.</p>
+                <h3><i class="fas fa-lightbulb"></i> Vision & Execution</h3>
+                <p>I work where customer problems, product thinking, business opportunities, data, AI, and execution meet. I identify where AI can remove repetitive work, improve decisions, personalize experiences, and turn ideas into measurable outcomes.</p>
                 <div class="quote-box">
-                    "Understand the problem. Build what matters. Execute for impact."
+                    <strong>Understand the problem. Build what matters. Use AI where it creates value. Execute for impact.</strong>
                 </div>
             </div>
             
             <div class="info-card" data-aos="fade-left" data-aos-delay="200">
                 <h3><i class="fas fa-graduation-cap"></i> Education & Credentials</h3>
                 <ul class="icon-list">
-                    <li><i class="fas fa-university"></i> <div><strong>MBA (Master of Business Admin)</strong><br>Unicaf University, Zambia (Completed)</div></li>
+                    <li><i class="fas fa-university"></i> <div><strong>Master of Business Admin (MBA)</strong><br>Unicaf University, Zambia (Completed)</div></li>
                     <li><i class="fas fa-building"></i> <div><strong>BSc, Civil Engineering</strong><br>Debre Berhan University, Ethiopia (Completed)</div></li>
-                    <li><i class="fas fa-certificate"></i> Data Analytics (ALX) | SQL | Scrum</li>
-                    <li><i class="fas fa-language"></i> English (Fluent) | Amharic (Native)</li>
+                    <li><i class="fas fa-language"></i> <div><strong>Languages:</strong> English (Fluent) | Amharic (Native)</div></li>
                 </ul>
+                <div style="margin-top: 15px; border-top: 1px solid #e2e8f0; padding-top: 15px;">
+                    <h4 style="font-size: 0.9rem; color: var(--gray); margin-bottom: 10px;">CERTIFICATIONS</h4>
+                    <div class="tags-container">
+                        <span class="tag highlight">Certified AI Prompt Engineer</span>
+                        <span class="tag">Data Analytics — ALX</span>
+                        <span class="tag">SQL Certification</span>
+                        <span class="tag">Scrum Certification</span>
+                    </div>
+                </div>
             </div>
         </div>
     </section>
@@ -610,27 +686,32 @@
     <section id="skills">
         <h2 class="section-title" data-aos="fade-up">Core Competencies</h2>
         <div class="skills-grid">
-            <div class="skill-box" data-aos="zoom-in" data-aos-delay="100">
-                <i class="fas fa-bullseye"></i>
-                <h4>Product</h4>
-                <p>Strategy, Discovery, MVPs, UX, Iteration</p>
+            <div class="skill-box" data-aos="zoom-in" data-aos-delay="50">
+                <i class="fas fa-robot"></i>
+                <h4>AI & Automation</h4>
+                <p>Prompt Engineering, AI Workflow Design, Generative AI, Workflow Automation, Human-in-the-Loop Systems</p>
             </div>
-            <div class="skill-box" data-aos="zoom-in" data-aos-delay="200">
+            <div class="skill-box" data-aos="zoom-in" data-aos-delay="100">
+                <i class="fas fa-cubes"></i>
+                <h4>Product</h4>
+                <p>Product Strategy, Discovery, MVPs, UX, AI Product Integration, Iteration</p>
+            </div>
+            <div class="skill-box" data-aos="zoom-in" data-aos-delay="150">
                 <i class="fas fa-chart-line"></i>
                 <h4>Business</h4>
-                <p>Business Dev, Partnerships, Models, Research</p>
+                <p>Business Development, AI-Assisted Bid Intelligence, Partnerships, Business Models, Market Research</p>
             </div>
-            <div class="skill-box" data-aos="zoom-in" data-aos-delay="300">
+            <div class="skill-box" data-aos="zoom-in" data-aos-delay="200">
                 <i class="fas fa-database"></i>
                 <h4>Data</h4>
-                <p>SQL, Analytics, KPIs, Customer Behaviour</p>
+                <p>SQL, Analytics, KPIs, Customer Behaviour, Data-Informed Decisions</p>
             </div>
-            <div class="skill-box" data-aos="zoom-in" data-aos-delay="400">
+            <div class="skill-box" data-aos="zoom-in" data-aos-delay="250">
                 <i class="fas fa-rocket"></i>
                 <h4>Growth</h4>
-                <p>Go-to-Market, Client Dev, Market Expansion</p>
+                <p>Go-to-Market, Client Development, Market Expansion</p>
             </div>
-            <div class="skill-box" data-aos="zoom-in" data-aos-delay="500">
+            <div class="skill-box" data-aos="zoom-in" data-aos-delay="300">
                 <i class="fas fa-tasks"></i>
                 <h4>Execution</h4>
                 <p>Scrum, Cross-Functional Collaboration</p>
@@ -638,83 +719,123 @@
         </div>
     </section>
 
-    <!-- Experience & Leadership Timeline -->
-    <section id="experience">
-        <h2 class="section-title" data-aos="fade-up">Experience & Leadership</h2>
+    <!-- Professional Experience Timeline -->
+    <section id="experience" style="background: white;">
+        <h2 class="section-title" data-aos="fade-up">Professional Experience</h2>
         <div class="timeline">
             
-            <!-- Job 1 -->
+            <!-- Job 1: Think Hub -->
             <div class="timeline-item left" data-aos="fade-right">
                 <div class="timeline-content">
                     <span class="date">Jan 2021 – Mar 2026</span>
                     <div class="timeline-header">
                         <img src="logos/Think Hub Logo.png" alt="Think Hub" onerror="this.style.display='none'">
                         <div>
-                            <h3 style="color: var(--primary);">Founder & Product Lead</h3>
-                            <h4 style="color: var(--gray); font-size: 0.9rem;">Think Hub ET Innovations | Exam Time</h4>
+                            <h3 style="color: var(--primary); font-size: 1.2rem;">Founder & Product Lead</h3>
+                            <h4 style="color: var(--gray); font-size: 0.95rem; font-weight: 500;">Think Hub ET Innovations | Exam Time</h4>
                         </div>
                     </div>
-                    <p style="font-size: 0.95rem;">Built and grew Exam Time, a digital platform reaching 120k+ students. Led strategy, partnerships, and fundraising. Pitched at Google HQ London.</p>
+                    <ul class="timeline-bullets">
+                        <li>Built and grew Exam Time from concept to a digital learning platform reaching <span class="metric-highlight">120,000+ students</span> with <span class="metric-highlight">15,000+ active users</span>.</li>
+                        <li>Selected as a Hult Prize <span class="metric-highlight">Global Top 20</span> Finalist and pitched at <span class="metric-highlight">Google HQ London</span>, representing Ethiopia internationally.</li>
+                        <li>Helped secure <span class="metric-highlight">$100,000+</span> in grants and awards through innovation and startup programs.</li>
+                        <li>Transformed manual content production using AI-assisted workflows, generating questions, smart notes, explanations, and short-form educational content.</li>
+                        <li>Introduced an AI-assisted exam digitization workflow that reads sheets, translates, structures, and connects to the admin workflow.</li>
+                        <li>Reduced repetitive content-production workload by <span class="metric-highlight">~65% workload reduction</span>, significantly improving efficiency across an eight-person team.</li>
+                    </ul>
                 </div>
             </div>
 
-            <!-- Job 2 -->
+            <!-- Job 2: Power Platform -->
             <div class="timeline-item right" data-aos="fade-left">
                 <div class="timeline-content">
                     <span class="date">Feb 2023 – Apr 2025</span>
                     <div class="timeline-header">
                         <img src="logos/ppllc.png" alt="Power Platform" onerror="this.style.display='none'">
                         <div>
-                            <h3 style="color: var(--primary);">Business Developer</h3>
-                            <h4 style="color: var(--gray); font-size: 0.9rem;">Power Platform Office LLC</h4>
+                            <h3 style="color: var(--primary); font-size: 1.2rem;">Business Developer & Strategist</h3>
+                            <h4 style="color: var(--gray); font-size: 0.95rem; font-weight: 500;">Power Platform Office LLC</h4>
                         </div>
                     </div>
-                    <p style="font-size: 0.95rem;">Led tech business dev initiatives. Improved bid success rate by 25% through strategic market analysis and competitive proposals.</p>
+                    <ul class="timeline-bullets">
+                        <li>Led business development for technology and digital-transformation services, including opportunity discovery, market analysis, proposals, and partnerships.</li>
+                        <li>Introduced an AI-assisted bid-screening approach to identify high-potential opportunities and filter low-probability bids.</li>
+                        <li>Enabled the team to evaluate more opportunities while focusing resources on bids with greater strategic fit.</li>
+                        <li>Improved opportunity selection and proposal positioning, contributing to a <span class="metric-highlight">25% higher bid success</span> rate.</li>
+                    </ul>
                 </div>
             </div>
 
-            <!-- Job 3 -->
+            <!-- Job 3: Nova Kids -->
             <div class="timeline-item left" data-aos="fade-right">
                 <div class="timeline-content">
                     <span class="date">Aug 2024 – Jan 2026</span>
                     <div class="timeline-header">
                         <img src="logos/nova-kids.png" alt="Nova Kids" onerror="this.style.display='none'">
                         <div>
-                            <h3 style="color: var(--primary);">Co-Founder & Product Lead</h3>
-                            <h4 style="color: var(--gray); font-size: 0.9rem;">Nova Kids</h4>
+                            <h3 style="color: var(--primary); font-size: 1.2rem;">Co-Founder & Product Lead</h3>
+                            <h4 style="color: var(--gray); font-size: 0.95rem; font-weight: 500;">Nova Kids</h4>
                         </div>
                     </div>
-                    <p style="font-size: 0.95rem;">Developed an early-childhood product from MVP to launch. Utilized insights from 3,800+ parents to validate and refine UX.</p>
+                    <ul class="timeline-bullets">
+                        <li>Built an early-childhood product helping parents understand and support their children's development.</li>
+                        <li>Led customer discovery, MVP development, launch, behaviour analysis, and product iteration using insights from 3,884 parents.</li>
+                        <li>Designed an AI-enabled personalization experience identifying milestones and providing tailored suggestions.</li>
+                        <li>Evolved the product from static information toward a scalable AI-assisted personal parenting consultant experience.</li>
+                    </ul>
                 </div>
             </div>
 
-            <!-- Fellowship 1 -->
-            <div class="timeline-item right" data-aos="fade-left">
+        </div>
+    </section>
+
+    <!-- Leadership Fellowships Timeline -->
+    <section id="leadership">
+        <h2 class="section-title" data-aos="fade-up">Leadership & Fellowships</h2>
+        <div class="timeline">
+            
+            <!-- Fellowship 1: Mountaintop -->
+            <div class="timeline-item left" data-aos="fade-right">
                 <div class="timeline-content">
-                    <span class="date">Oct 2025 - Mar 2026</span>
+                    <span class="date">Oct 2025 – Mar 2026</span>
                     <div class="timeline-header">
                         <img src="logos/mountaintop.png" alt="Mountaintop" onerror="this.style.display='none'">
                         <div>
-                            <h3 style="color: var(--primary);">Business Executive Fellow</h3>
+                            <h3 style="color: var(--primary); font-size: 1.1rem;">Business Executive Fellow</h3>
                             <h4 style="color: var(--gray); font-size: 0.9rem;">Mountaintop Global Leadership</h4>
                         </div>
                     </div>
-                    <p style="font-size: 0.95rem;">Executive development in strategy, systems thinking, innovation, and business scaling.</p>
+                    <p style="font-size: 0.95rem;">Executive development in strategy, leadership, systems thinking, innovation, and business scaling alongside international experts.</p>
                 </div>
             </div>
 
-             <!-- Fellowship 2 -->
+            <!-- Fellowship 2: Trevor Noah -->
+            <div class="timeline-item right" data-aos="fade-left">
+                <div class="timeline-content">
+                    <span class="date">Jul 2026 – Aug 2026</span>
+                    <div class="timeline-header">
+                        <img src="logos/trevor noah foundation logo.jpg" alt="Trevor Noah Foundation" onerror="this.style.display='none'">
+                        <div>
+                            <h3 style="color: var(--primary); font-size: 1.1rem;">Trevor Noah Fellow</h3>
+                            <h4 style="color: var(--gray); font-size: 0.9rem;">Regional Leadership Center, Kenya</h4>
+                        </div>
+                    </div>
+                    <p style="font-size: 0.95rem;">Selected for a regional program focused on innovation, collaboration, problem-solving, and sustainable impact.</p>
+                </div>
+            </div>
+
+             <!-- Fellowship 3: Jasiri -->
              <div class="timeline-item left" data-aos="fade-right">
                 <div class="timeline-content">
-                    <span class="date">Aug 2024 - Nov 2024</span>
+                    <span class="date">Aug 2024 – Nov 2024</span>
                     <div class="timeline-header">
                         <img src="logos/jasiri.png" alt="Jasiri" onerror="this.style.display='none'">
                         <div>
-                            <h3 style="color: var(--primary);">Talent Investor Fellow</h3>
+                            <h3 style="color: var(--primary); font-size: 1.1rem;">Talent Investor Fellow</h3>
                             <h4 style="color: var(--gray); font-size: 0.9rem;">Jasiri (Cohort 6)</h4>
                         </div>
                     </div>
-                    <p style="font-size: 0.95rem;">Venture-building fellowship focused on customer discovery, validation, and execution.</p>
+                    <p style="font-size: 0.95rem;">Intensive venture-building fellowship focused on customer discovery, experimentation, validation, and execution.</p>
                 </div>
             </div>
 
@@ -722,51 +843,51 @@
     </section>
 
     <!-- Projects Section -->
-    <section id="projects">
-        <h2 class="section-title" data-aos="fade-up">Selected Projects</h2>
+    <section id="projects" style="background: white;">
+        <h2 class="section-title" data-aos="fade-up">Selected Product Projects</h2>
         <div class="projects-grid">
             
-            <div class="project-card" data-aos="flip-up" data-aos-delay="100">
+            <div class="project-card" data-aos="flip-up" data-aos-delay="50">
                 <div class="project-content">
                     <div class="project-header">
                         <img src="logos/Gotera Logo.png" alt="Gotera" onerror="this.outerHTML='<h3 style=\'color:var(--primary)\'>Gotera</h3>'">
-                        <span class="badge"><i class="fas fa-ship"></i> Export</span>
+                        <span class="badge"><i class="fas fa-ship"></i> Export Mgt</span>
                     </div>
-                    <p class="date" style="margin-bottom: 10px;">Jul '24 – Feb '25</p>
-                    <p>Market research, sourcing, partnerships, and a business model designed to simplify export and international trade.</p>
+                    <p class="date" style="margin-bottom: 10px;">Jul 2024 – Feb 2025</p>
+                    <p style="font-size: 0.95rem;">Market research, sourcing, partnerships, and business-model development to simplify export and international trade.</p>
                 </div>
             </div>
 
-            <div class="project-card" data-aos="flip-up" data-aos-delay="200">
+            <div class="project-card" data-aos="flip-up" data-aos-delay="150">
                 <div class="project-content">
                     <div class="project-header">
                         <img src="logos/nexo logo.png" alt="NEXO" onerror="this.outerHTML='<h3 style=\'color:var(--primary)\'>NEXO</h3>'">
                         <span class="badge"><i class="fas fa-headset"></i> BPO</span>
                     </div>
-                    <p class="date" style="margin-bottom: 10px;">Apr '25 – Oct '25</p>
-                    <p>Client discovery, service design, and market development for a BPO model connecting businesses with skilled talent.</p>
+                    <p class="date" style="margin-bottom: 10px;">Apr 2025 – Oct 2025</p>
+                    <p style="font-size: 0.95rem;">Client discovery, service design, and market development for a BPO model connecting businesses with skilled talent.</p>
                 </div>
             </div>
 
-            <div class="project-card" data-aos="flip-up" data-aos-delay="300">
+            <div class="project-card" data-aos="flip-up" data-aos-delay="250">
                 <div class="project-content">
                     <div class="project-header">
-                        <img src="logos/pklogo.png" alt="Golazzo" onerror="this.outerHTML='<h3 style=\'color:var(--primary)\'>Golazzo</h3>'">
+                        <img src="logos/pklogo.png" alt="Golazzo" onerror="this.outerHTML='<h3 style=\'color:var(--primary)\'>Golazzo - PK</h3>'">
                         <span class="badge"><i class="fas fa-futbol"></i> SportsTech</span>
                     </div>
-                    <p class="date" style="margin-bottom: 10px;">Mar '26 – Jun '26</p>
-                    <p>Golazzo - PK is a competitive football penalty shootout game—managed concept, UX, business model, and go-to-market.</p>
+                    <p class="date" style="margin-bottom: 10px;">Mar 2026 – Jun 2026</p>
+                    <p style="font-size: 0.95rem;">Competitive football penalty-shootout game — led product concept, UX, business model, and go-to-market.</p>
                 </div>
             </div>
 
-            <div class="project-card" data-aos="flip-up" data-aos-delay="400">
+            <div class="project-card" data-aos="flip-up" data-aos-delay="350">
                 <div class="project-content">
                     <div class="project-header">
                         <img src="logos/kimem digital.png" alt="Kimem Digital" onerror="this.outerHTML='<h3 style=\'color:var(--primary)\'>Kimem Digital</h3>'">
                         <span class="badge"><i class="fas fa-gift"></i> Creator Econ</span>
                     </div>
-                    <p class="date" style="margin-bottom: 10px;">Mar '26 – Aug '26</p>
-                    <p>Digital gifting platform enabling Ethiopian fans to directly support creators—problem validation and product direction.</p>
+                    <p class="date" style="margin-bottom: 10px;">Mar 2026 – Aug 2026</p>
+                    <p style="font-size: 0.95rem;">Digital gifting platform enabling Ethiopian fans to directly support creators — led problem validation and product direction.</p>
                 </div>
             </div>
 
@@ -775,7 +896,7 @@
 
     <!-- Awards & Pitch Video -->
     <section id="awards">
-        <h2 class="section-title" data-aos="fade-up">Recognition & Pitches</h2>
+        <h2 class="section-title" data-aos="fade-up">Selected Recognition & Pitches</h2>
         
         <div class="awards-grid">
             <div class="award-card" data-aos="zoom-in-up" data-aos-delay="50">
@@ -790,7 +911,7 @@
                 <img src="logos/master card.png" alt="Mastercard" onerror="this.style.display='none'">
                 <div>
                     <h4 style="color: var(--primary);">Mastercard Foundation <i class="fas fa-sack-dollar" style="color: var(--success);"></i></h4>
-                    <p style="font-size: 0.85rem; color: var(--gray);">EdTech Fellowship ($60,000)</p>
+                    <p style="font-size: 0.85rem; color: var(--gray);">EdTech Fellowship — $60,000</p>
                 </div>
             </div>
 
@@ -798,7 +919,7 @@
                 <img src="logos/Post-Growth-Institute-Logo.png" alt="Post Growth" onerror="this.style.display='none'">
                 <div>
                     <h4 style="color: var(--primary);">Post-Startup Growth <i class="fas fa-sack-dollar" style="color: var(--success);"></i></h4>
-                    <p style="font-size: 0.85rem; color: var(--gray);">Growth Award ($40,000)</p>
+                    <p style="font-size: 0.85rem; color: var(--gray);">Growth Award — $40,000</p>
                 </div>
             </div>
 
@@ -806,7 +927,7 @@
                 <img src="logos/innobiz.png" alt="InnoBiz" onerror="this.style.display='none'">
                 <div>
                     <h4 style="color: var(--primary);">InnoBiz Startup <i class="fas fa-trophy" style="color: var(--accent);"></i></h4>
-                    <p style="font-size: 0.85rem; color: var(--gray);">1st Place ($10,000)</p>
+                    <p style="font-size: 0.85rem; color: var(--gray);">1st Place — $10,000</p>
                 </div>
             </div>
 
@@ -814,15 +935,31 @@
                 <img src="logos/jasiri.png" alt="Jasiri" onerror="this.style.display='none'">
                 <div>
                     <h4 style="color: var(--primary);">Jasiri Talent Investor <i class="fas fa-sack-dollar" style="color: var(--success);"></i></h4>
-                    <p style="font-size: 0.85rem; color: var(--gray);">Fellow ($10,000)</p>
+                    <p style="font-size: 0.85rem; color: var(--gray);">Fellow — $10,000</p>
                 </div>
             </div>
 
             <div class="award-card" data-aos="zoom-in-up" data-aos-delay="300">
+                <img src="logos/KOICA_official_logo_in_english.png" alt="KOICA" onerror="this.style.display='none'">
+                <div>
+                    <h4 style="color: var(--primary);">KOICA & MINT <i class="fas fa-lightbulb" style="color: var(--success);"></i></h4>
+                    <p style="font-size: 0.85rem; color: var(--gray);">Innovation Award — $3,000</p>
+                </div>
+            </div>
+
+            <div class="award-card" data-aos="zoom-in-up" data-aos-delay="350">
                 <img src="logos/Kefeta-Logo.png" alt="Kefeta" onerror="this.style.display='none'">
                 <div>
                     <h4 style="color: var(--primary);">Kefeta Competition <i class="fas fa-trophy" style="color: var(--accent);"></i></h4>
                     <p style="font-size: 0.85rem; color: var(--gray);">1st Place Winner</p>
+                </div>
+            </div>
+
+            <div class="award-card" data-aos="zoom-in-up" data-aos-delay="400">
+                <img src="logos/steampower.png" alt="STEMpower" onerror="this.style.display='none'">
+                <div>
+                    <h4 style="color: var(--primary);">STEMpower & VISA <i class="fas fa-star" style="color: var(--accent);"></i></h4>
+                    <p style="font-size: 0.85rem; color: var(--gray);">Top 20 Innovator</p>
                 </div>
             </div>
         </div>
@@ -846,7 +983,7 @@
             <a href="#" title="Location"><i class="fas fa-map-marker-alt"></i></a>
         </div>
 
-        <p style="color: #cbd5e1; font-size: 0.9rem;" data-aos="fade-up" data-aos-delay="200">
+        <p style="color: #cbd5e1; font-size: 0.95rem;" data-aos="fade-up" data-aos-delay="200">
             Addis Ababa, Ethiopia | +251 912 462 133<br>
             &copy; 2025 Abel Teweldebirhan Gebreselassie. All Rights Reserved.
         </p>
@@ -857,10 +994,10 @@
     <script>
         // Initialize Scroll Animations
         AOS.init({
-            once: true, // Whether animation should happen only once - while scrolling down
-            offset: 50, // Offset (in px) from the original trigger point
-            duration: 800, // Values from 0 to 3000, with step 50ms
-            easing: 'ease-in-out-cubic', // Default easing for AOS animations
+            once: true, // Animation happens only once while scrolling down
+            offset: 50, // Trigger point offset
+            duration: 800, // Animation duration
+            easing: 'ease-in-out-cubic',
         });
 
         // Mobile Menu Toggle
